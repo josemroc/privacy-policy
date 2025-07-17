@@ -5,92 +5,371 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - Tipificaciones Salesforce</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
+            padding: 40px 20px;
+            line-height: 1.8;
+            color: #2d3748;
+            background: #f7fafc;
         }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+        
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+            color: #1a202c;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
+        
+        .subtitle {
+            color: #718096;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .update-date {
+            background: #edf2f7;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+            color: #4a5568;
+            border-left: 4px solid #7c3aed;
+        }
+        
         h2 {
-            color: #34495e;
-            margin-top: 30px;
+            color: #2d3748;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+        
+        h2:before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: #7c3aed;
+            border-radius: 2px;
+        }
+        
         h3 {
-            color: #2980b9;
+            color: #4a5568;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
+        
+        p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+        
         ul {
-            padding-left: 20px;
+            margin-bottom: 20px;
+            padding-left: 0;
+            list-style: none;
         }
+        
         li {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            padding-left: 28px;
+            position: relative;
+            color: #4a5568;
         }
-        .highlight {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            margin: 15px 0;
+        
+        li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .no-icon li:before {
+            content: '•';
+            color: #cbd5e0;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .warning-box h4 {
+            color: #c53030;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .warning-box h4:before {
+            content: '⚠️';
+            font-size: 1.2em;
+        }
+        
+        .warning-box li:before {
+            content: '✗';
+            color: #fc8181;
+        }
+        
+        .info-box {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .info-box h4 {
+            color: #2b6cb0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-box h4:before {
+            content: 'ℹ️';
+            font-size: 1.2em;
+        }
+        
+        .contact-section {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .contact-section h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+        
+        .email-link {
+            color: #7c3aed;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .email-link:hover {
+            border-bottom-color: #7c3aed;
+        }
+        
+        strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #7c3aed;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .container {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Política de Privacidad - Tipificaciones Salesforce</h1>
-    
-    <div class="highlight">
-        <p><strong>Última actualización:</strong> Julio 2025</p>
-    </div>
-    
-    <h2>DIVULGACIÓN DE DATOS DEL USUARIO</h2>
-    <p>Esta extensión accede temporalmente al contenido de los campos de texto ÚNICAMENTE cuando el usuario activa la función con Alt+Q.</p>
-    
-    <h3>Datos que se procesan:</h3>
-    <ul>
-        <li>Contenido del campo de texto activo (solo cuando se presiona Alt+Q)</li>
-        <li>Teclas presionadas para detectar el atajo Alt+Q</li>
-    </ul>
-    
-    <h3>USO DE LOS DATOS</h3>
-    <ul>
-        <li>Los datos se procesan localmente en el navegador</li>
-        <li>Se usan ÚNICAMENTE para buscar y aplicar tipificaciones</li>
-        <li>NO se almacenan, guardan ni transmiten a ningún servidor</li>
-        <li>Los datos se descartan inmediatamente después de su uso</li>
-    </ul>
-    
-    <h3>La extensión NUNCA:</h3>
-    <ul>
-        <li>Almacena datos del usuario</li>
-        <li>Envía información a servidores externos</li>
-        <li>Recopila datos sin acción explícita del usuario (Alt+Q)</li>
-    </ul>
-    
-    <h3>DATOS EXTERNOS</h3>
-    <p>La extensión descarga una lista de tipificaciones desde Google Sheets, pero esta lista NO contiene ningún dato personal del usuario.</p>
-    
-    <h3>DECLARACIÓN DE PERMISOS</h3>
-    <p>Esta extensión utiliza los siguientes permisos:</p>
-    <ul>
-        <li><strong>activeTab:</strong> Para detectar cuando el usuario presiona Alt+Q</li>
-        <li><strong>scripting:</strong> Para inyectar el script en páginas de Salesforce</li>
-        <li><strong>host_permissions:</strong> Para funcionar únicamente en dominios de Salesforce</li>
-    </ul>
-    
-    <h3>CUMPLIMIENTO</h3>
-    <ul>
-        <li>NO vendemos ni transferimos datos a terceros</li>
-        <li>NO usamos datos para publicidad</li>
-        <li>NO determinamos solvencia crediticia</li>
-        <li>Los datos se procesan ÚNICAMENTE con el propósito de buscar y aplicar tipificaciones</li>
-    </ul>
-    
-    <div class="highlight">
-        <p><strong>Contacto:</strong> Si tienes preguntas sobre esta política de privacidad, puedes contactarnos a través de GitHub.</p>
+    <div class="container">
+        <h1>Política de Privacidad</h1>
+        <p class="subtitle">Tipificaciones Salesforce - Extensión de Chrome</p>
+        
+        <div class="update-date">
+            <strong>Última actualización:</strong> Julio 2025
+        </div>
+        
+        <h2>Compromiso de Privacidad</h2>
+        <p>
+            <strong>Tipificaciones Salesforce</strong> se compromete firmemente con la privacidad de sus usuarios. 
+            Esta extensión ha sido diseñada con el principio de <strong>privacidad por diseño</strong>, 
+            lo que significa que NO recopilamos, almacenamos ni transmitimos ningún dato personal.
+        </p>
+        
+        <div class="info-box">
+            <h4>Resumen de Privacidad</h4>
+            <ul>
+                <li>NO recopilamos información personal</li>
+                <li>NO rastreamos tu actividad de navegación</li>
+                <li>NO almacenamos datos en servidores externos</li>
+                <li>NO compartimos información con terceros</li>
+                <li>TODO el procesamiento ocurre localmente en tu navegador</li>
+            </ul>
+        </div>
+        
+        <h2>¿Qué Información Procesamos?</h2>
+        
+        <h3>Procesamiento Local Temporal</h3>
+        <p>
+            Cuando presionas <strong>Alt+Q</strong> en un campo de texto dentro de Salesforce, la extensión:
+        </p>
+        <ul>
+            <li>Lee temporalmente el contenido del campo de texto activo</li>
+            <li>Muestra un menú de tipificaciones disponibles</li>
+            <li>Inserta el texto seleccionado en el campo</li>
+            <li>Descarta inmediatamente toda la información</li>
+        </ul>
+        
+        <div class="warning-box">
+            <h4>Lo que NUNCA hacemos</h4>
+            <ul>
+                <li>Guardar el contenido de tus campos de texto</li>
+                <li>Enviar información a servidores externos</li>
+                <li>Crear perfiles de usuario</li>
+                <li>Rastrear tu uso de Salesforce</li>
+                <li>Acceder a datos sin tu acción explícita (Alt+Q)</li>
+            </ul>
+        </div>
+        
+        <h2>Fuente de Datos Externa</h2>
+        <p>
+            La extensión carga una lista de plantillas de tipificación desde una hoja de cálculo pública 
+            de Google Sheets. Esta hoja:
+        </p>
+        <ul class="no-icon">
+            <li>Contiene únicamente plantillas de texto genéricas</li>
+            <li>NO incluye ningún dato personal</li>
+            <li>Es de solo lectura</li>
+            <li>Se actualiza periódicamente para mejorar las plantillas</li>
+        </ul>
+        
+        <h2>Permisos de la Extensión</h2>
+        <p>
+            La extensión solicita los siguientes permisos, cada uno con una justificación específica:
+        </p>
+        
+        <h3>host_permissions <span class="badge">Requerido</span></h3>
+        <ul class="no-icon">
+            <li><strong>*.salesforce.com y *.force.com:</strong> Necesario para insertar tipificaciones en campos de Salesforce</li>
+            <li><strong>docs.google.com:</strong> Necesario para leer las plantillas desde Google Sheets</li>
+        </ul>
+        
+        <p>
+            <strong>Importante:</strong> Estos permisos NO nos dan acceso a tus datos de Salesforce ni a tus documentos 
+            de Google. Solo permiten que la extensión funcione en estos sitios cuando tú lo solicitas.
+        </p>
+        
+        <h2>Almacenamiento de Datos</h2>
+        <p>
+            <strong>La extensión NO utiliza ningún tipo de almacenamiento:</strong>
+        </p>
+        <ul>
+            <li>NO usa localStorage</li>
+            <li>NO usa sessionStorage</li>
+            <li>NO usa cookies</li>
+            <li>NO usa bases de datos</li>
+            <li>NO guarda archivos locales</li>
+        </ul>
+        
+        <h2>Seguridad</h2>
+        <p>
+            Implementamos las siguientes medidas de seguridad:
+        </p>
+        <ul>
+            <li>Todo el código es de código abierto y auditable</li>
+            <li>No se ejecutan scripts externos</li>
+            <li>Validación de entrada para prevenir inyección de código</li>
+            <li>Uso de Content Security Policy (CSP)</li>
+            <li>Actualizaciones regulares para mantener la seguridad</li>
+        </ul>
+        
+        <h2>Derechos del Usuario</h2>
+        <p>
+            Como no recopilamos datos personales, no hay información que:
+        </p>
+        <ul class="no-icon">
+            <li>Solicitar acceso</li>
+            <li>Corregir o actualizar</li>
+            <li>Eliminar</li>
+            <li>Exportar</li>
+        </ul>
+        <p>
+            Simplemente porque <strong>no existe tal información</strong>.
+        </p>
+        
+        <h2>Cambios a esta Política</h2>
+        <p>
+            Si realizamos cambios significativos a esta política de privacidad:
+        </p>
+        <ul class="no-icon">
+            <li>Actualizaremos la fecha de "Última actualización"</li>
+            <li>Notificaremos a través de la página de la extensión en Chrome Web Store</li>
+            <li>Mantendremos nuestro compromiso de no recopilar datos personales</li>
+        </ul>
+        
+        <h2>Cumplimiento Legal</h2>
+        <p>
+            Esta extensión cumple con:
+        </p>
+        <ul>
+            <li>Reglamento General de Protección de Datos (GDPR)</li>
+            <li>California Consumer Privacy Act (CCPA)</li>
+            <li>Políticas de Chrome Web Store</li>
+            <li>Mejores prácticas de privacidad en extensiones de navegador</li>
+        </ul>
+        
+        <div class="contact-section">
+            <h3>¿Tienes preguntas?</h3>
+            <p>
+                Si tienes alguna pregunta sobre esta política de privacidad o sobre cómo 
+                manejamos la información, no dudes en contactarnos:
+            </p>
+            <p>
+                <a href="mailto:josemanuel@retorna.app" class="email-link">tu-email@ejemplo.com</a>
+            </p>
+        </div>
     </div>
 </body>
 </html>
